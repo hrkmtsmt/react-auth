@@ -1,0 +1,177 @@
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+table {
+  border-collapse: collapse;
+}
+/* Foundation */
+:root {
+  --max-width: 1080px;
+  --sans-serif: "游ゴシック体", YuGothic, "游ゴシック Medium",
+    "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "Helvetica Neue", Arial,
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --monospace: "Courier", "游ゴシック体", YuGothic, "游ゴシック Medium",
+    "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+}
+:root,
+.is-theme-light {
+  --base-color: #ffffff;
+  --background-color: #ffffff;
+  --primary-color: #23cc99;
+  --primary-color-light: #d1e2ff;
+  --primary-color-dark: #02368a;
+  --secondary-color: #ce127f;
+  --secondary-color-light: #ffccea;
+  --font-color: #202020;
+  --font-color-sub: #808080;
+  --glass-base: rgba(255, 255, 255, 0.6);
+  --color-black: #202020;
+  --color-white: #fff;
+  --color-gray: #eeeeee;
+  --color-light-pink: #ffa1bc;
+  --color-pink: #ff2266;
+  --shadow-color-hover: drop-shadow(0 0 20px rgba(47, 118, 230, 0.2));
+}
+.is-theme-dark {
+  --base-color: #111111;
+  --background-color: #202020;
+  --primary-color: #3477eb;
+  --primary-color-light: #273957;
+  --primary-color-dark: #5a98fc;
+  --font-color: #dddddd;
+  --font-color-sub: #aaaaaa;
+  --color-black: #111111;
+  --color-gray: #404040;
+  --color-light-pink: #4e1021;
+  --color-pink: #ff5b8c;
+  --glass-base: rgba(32, 32, 32, 0.6);
+  --shadow-color-hover: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+  ::selection {
+    @content;
+  }
+}
+@include selection {
+  background: var(--primary-color);
+  color: var(--base-color);
+}
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  font-size: 16px;
+  line-height: 30px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+.section::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 20px;
+}
+body {
+  font-size: 16px;
+  line-height: 30px;
+  font-family: var(--monospace);
+  font-weight: 400;
+  font-display: swap;
+  width: 100%;
+  color: var(--font-color);
+  background: var(--background-color);
+}
+input,
+button,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+  resize: vertical;
+}
+input {
+  &[type="checkbox"],
+  &[type="radio"] {
+    display: none;
+  }
+  &[type="submit"],
+  &[type="button"] {
+    cursor: pointer;
+  }
+}
+a,
+label,
+button {
+  cursor: pointer;
+}
+select {
+  cursor: pointer;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+.c-form {
+  &-group {
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &-label {
+  }
+  &-input {
+    width: 100%;
+    line-height: 40px;
+    border-radius: 20px;
+    padding: 0 20px;
+    background: var(--color-gray);
+
+    &:focus {
+      background: var(--base-color);
+    }
+  }
+  &-button-primary {
+    width: 100%;
+    line-height: 40px;
+    border-radius: 20px;
+    padding: 0 20px;
+    text-align: center;
+    background: var(--primary-color);
+  }
+}

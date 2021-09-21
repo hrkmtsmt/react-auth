@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "./firebase";
 import { useHistory } from "react-router-dom";
 import { path } from "./App";
-import { auth } from "./firebase";
 
 export const SignUp = () => {
   const history = useHistory();
@@ -12,12 +12,19 @@ export const SignUp = () => {
     const { email, password } = e.target.elements;
     try {
       await createUserWithEmailAndPassword(auth, email.value, password.value);
-      history.push(path.home);
+      history.push(path.admin);
     } catch (error) {
       setError(error.message);
     }
   };
-
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      history.push(path.admin);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
   return (
     <React.Fragment>
       <h1>Sign Up</h1>
@@ -40,6 +47,7 @@ export const SignUp = () => {
           <button>Sign Up</button>
         </div>
       </form>
+      <button onClick={handleGoogleLogin}>Sign Up with Google</button>
     </React.Fragment>
   );
 };

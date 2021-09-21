@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "./firebase";
 import { path } from "./App";
+import { Form, FormGroup, FormButton, FormLabel, FormInput } from "./Form";
 
 export const Login = () => {
   const history = useHistory();
@@ -12,7 +13,7 @@ export const Login = () => {
     const { email, password } = e.target.elements;
     try {
       await signInWithEmailAndPassword(auth, email.value, password.value);
-      history.push(path.home);
+      history.push(path.admin);
     } catch (error) {
       setError(error.message);
     }
@@ -20,7 +21,7 @@ export const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, provider);
-      history.push(path.home);
+      history.push(path.admin);
     } catch (error) {
       setError(error.message);
     }
@@ -28,29 +29,33 @@ export const Login = () => {
   return (
     <React.Fragment>
       <h1>Login</h1>
+      <FormButton onClick={handleGoogleLogin} cta={"Sign In with Google"} />
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor={"email"}>Email</label>
-          <input
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <FormLabel htmlFor={"email"} label={"Email"} />
+          <FormInput
+            className={"c-form-input"}
             id={"email"}
-            name={"email"}
             type={"email"}
             placeholder={"example@example.com"}
           />
-        </div>
-        <div>
-          <label htmlFor={"password"}>Password</label>
-          <input id={"password"} name={"password"} type={"password"} />
-        </div>
-        <div>
-          <button>Login</button>
-        </div>
-        <div>
-          <Link to={"/signup"}>Sign Up</Link>
-        </div>
-      </form>
-      <button onClick={handleGoogleLogin}>Sign In with Google</button>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel htmlFor={"password"} label={"Password"} />
+          <FormInput
+            className={"c-form-input"}
+            id={"password"}
+            type={"password"}
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormButton cta={"Login"} />
+        </FormGroup>
+        <FormGroup>
+          <Link to={path.signup}>Sign Up</Link>
+        </FormGroup>
+      </Form>
     </React.Fragment>
   );
 };
