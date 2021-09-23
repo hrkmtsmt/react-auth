@@ -49,10 +49,20 @@ export const FormGroup = (props: Props) => {
   return <div className={"c-form-group"}>{props.children}</div>;
 };
 
-export const FormButton = (props: Props) => {
+export const FormButtonPrimary = (props: Props) => {
   return (
     <div className={"c-form-group"}>
       <button onClick={props.onClick} className={"c-form-button-primary"}>
+        {props.cta}
+      </button>
+    </div>
+  );
+};
+
+export const FormButtonDanger = (props: Props) => {
+  return (
+    <div className={"c-form-group"}>
+      <button onClick={props.onClick} className={"c-form-button-danger"}>
         {props.cta}
       </button>
     </div>

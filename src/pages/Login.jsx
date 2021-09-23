@@ -7,9 +7,9 @@ import { path } from "../App";
 import {
   Form,
   FormTitle,
-  FormButton,
   FormInput,
   FormPartition,
+  FormButtonPrimary,
 } from "../components/Form";
 import { Grid, Large } from "../components/layout/Grid";
 import { Box } from "../components/Box";
@@ -62,7 +62,7 @@ export const Login = () => {
               label={"Password"}
               error={passwordError && passwordError}
             />
-            <FormButton cta={"Login"} />
+            <FormButtonPrimary cta={"Login"} />
           </Form>
         </Box>
       </Large>

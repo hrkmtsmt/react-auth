@@ -6,13 +6,13 @@ import { path } from "../App";
 import {
   Form,
   FormTitle,
-  FormButton,
-  FormInput,
-  FormPartition,
+  FormGroup,
+  FormButtonPrimary,
 } from "../components/Form";
 import { Grid, Large } from "../components/layout/Grid";
 import { Box } from "../components/Box";
 import settings from "../img/signup.svg";
+import { DeleteUser } from "../components/DeleteUser";
 export const Settings = () => {
   const history = useHistory();
   const handleLogout = () => {
@@ -29,8 +29,15 @@ export const Settings = () => {
         </Large>
         <Large>
           <Box>
-            <FormTitle title={"Settings"} />
-            <FormButton onClick={handleLogout} cta={"Logout"} />
+            <Form>
+              <FormTitle title={"Settings"} />
+              <FormGroup>
+                <FormButtonPrimary onClick={handleLogout} cta={"Logout"} />
+              </FormGroup>
+              <FormGroup>
+                <DeleteUser />
+              </FormGroup>
+            </Form>
           </Box>
         </Large>
       </Grid>

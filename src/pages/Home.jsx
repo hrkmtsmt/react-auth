@@ -4,7 +4,7 @@ import { path } from "../App";
 import { Link } from "react-router-dom";
 import { Box } from "../components/Box";
 import { Form, FormTitle, FormGroup } from "../components/Form";
-import { Button, ButtonBorder } from "../components/Button";
+import { ButtonPrimary, ButtonBorder } from "../components/Button";
 import { Grid, Large } from "../components/layout/Grid";
 export const Home = () => {
   return (
@@ -20,7 +20,7 @@ export const Home = () => {
             <FormTitle title={"Form"} />
             <FormGroup>
               <Link to={path.signup}>
-                <Button cta={"Sign Up"} />
+                <ButtonPrimary cta={"Sign Up"} />
               </Link>
             </FormGroup>
             <FormGroup>

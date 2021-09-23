@@ -5,14 +5,21 @@ type Props = {
   onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 };
 
-export const Button = (props: Props) => {
+export const ButtonPrimary = (props: Props) => {
   return (
-    <button className={"c-button"} onClick={props.onClick}>
+    <button className={"c-button-primary"} onClick={props.onClick}>
       {props.cta}
     </button>
   );
 };
 
+export const ButtonDanger = (props: Props) => {
+  return (
+    <button className={"c-button-danger"} onClick={props.onClick}>
+      {props.cta}
+    </button>
+  );
+};
 export const ButtonBorder = (props: Props) => {
   return (
     <button className={"c-button-border"} onClick={props.onClick}>

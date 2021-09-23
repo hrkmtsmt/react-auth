@@ -11,9 +11,9 @@ import { path } from "../App";
 import {
   Form,
   FormTitle,
-  FormButton,
   FormInput,
   FormPartition,
+  FormButtonPrimary,
 } from "../components/Form";
 import { Box } from "../components/Box";
 import { Grid, Large } from "../components/layout/Grid";
@@ -60,7 +60,7 @@ export const SignUp = () => {
               type={"password"}
               error={passwordError && passwordError}
             />
-            <FormButton cta={"Sign Up"} />
+            <FormButtonPrimary cta={"Sign Up"} />
           </Form>
         </Box>
       </Large>

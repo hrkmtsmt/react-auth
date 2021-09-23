@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import { auth, providerGoogle } from "../firebase";
 import { path } from "../App";
-import { Button } from "./Button";
+import { ButtonPrimary } from "./Button";
 
 export const GoogleSignUpButton = () => {
   const history = useHistory();
@@ -11,5 +11,7 @@ export const GoogleSignUpButton = () => {
     await signInWithPopup(auth, providerGoogle);
     history.push(path.admin);
   };
-  return <Button onClick={handleGoogleLogin} cta={"Sign In with Google"} />;
+  return (
+    <ButtonPrimary onClick={handleGoogleLogin} cta={"Sign In with Google"} />
+  );
 };

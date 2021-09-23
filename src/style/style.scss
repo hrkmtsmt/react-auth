@@ -46,6 +46,7 @@
 *::after,
 *:focus,
 *:active {
+  flex-direction: column;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -338,6 +339,7 @@ select {
   &-label {
     line-height: 30px;
     display: flex;
+    flex-direction: row;
 
     &-title {
       font-weight: 700;
@@ -371,6 +373,16 @@ select {
     font-weight: 700;
     color: var(--base-color);
     background: var(--primary-color);
+  }
+  &-button-danger {
+    width: 100%;
+    line-height: 40px;
+    border-radius: 10px;
+    padding: 0 20px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--base-color);
+    background: var(--color-red);
   }
   &-partition {
     line-height: 40px;
@@ -407,7 +419,7 @@ select {
     width: 80%;
   }
 }
-.c-button {
+.c-button-primary {
   width: 100%;
   line-height: 40px;
   border-radius: 10px;
@@ -416,6 +428,16 @@ select {
   font-weight: 700;
   color: var(--base-color);
   background: var(--primary-color);
+}
+.c-button-danger {
+  width: 100%;
+  line-height: 40px;
+  border-radius: 10px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--base-color);
+  background: var(--color-red);
 }
 .c-button-border {
   width: 100%;
