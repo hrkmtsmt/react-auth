@@ -18,9 +18,6 @@ export const DeleteUser = () => {
       setError(error.code);
     }
   };
-  return (
-    <>
-      <ButtonDanger onClick={handleDeleteUser} cta={"Delete Account"} />
-    </>
-  );
+  console.log(error);
+  return <ButtonDanger onClick={handleDeleteUser} cta={"Delete Account"} />;
 };

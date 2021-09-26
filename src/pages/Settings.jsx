@@ -17,7 +17,7 @@ export const Settings = () => {
   const history = useHistory();
   const handleLogout = () => {
     signOut(auth);
-    history.push(path.login);
+    history.push(path.home);
   };
   return (
     <React.Fragment>

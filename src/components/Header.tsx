@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 export const Header = () => {
   return (
     <header id={"header"} className={"l-header"}>
