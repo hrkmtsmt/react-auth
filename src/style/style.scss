@@ -400,6 +400,11 @@ select {
   padding: 40px;
   filter: var(--shadow-color);
 }
+@media screen and (max-width: 576px) {
+  .c-box {
+    padding: 20px;
+  }
+}
 .c-image-wrapper {
   width: 100%;
   padding: 40px;
@@ -408,16 +413,6 @@ select {
   img {
     width: 100%;
     object-fit: cover;
-  }
-}
-@media screen and (max-width: 768px) {
-  .c-image-wrapper {
-    width: 50%;
-  }
-}
-@media screen and (max-width: 576px) {
-  .c-image-wrapper {
-    width: 80%;
   }
 }
 .c-button-primary {
